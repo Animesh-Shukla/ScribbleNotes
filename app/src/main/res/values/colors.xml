@@ -19,10 +19,9 @@
     <color name="colorDefaultNoteColor">#C5FF00</color>
     <color name="colorNoteSubtitleText">#FAFAFA</color>
     <color name="colorMiscellaneousBackground">#FF96F1</color>
-    <color name="colorNoteColor2">#FDBE3B</color>
 
-    <color name="colorNoteColor4">#3A52Fc</color>
-    <color name="colorNoteColor5">#000000</color>
+
+
     <color name="colorDelete">#FF4842</color>
     <color name="colorSearchBackground">#FFB6B6</color>
 
