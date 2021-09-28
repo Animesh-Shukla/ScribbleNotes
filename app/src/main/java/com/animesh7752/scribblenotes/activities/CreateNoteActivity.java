@@ -241,6 +241,7 @@ public class CreateNoteActivity extends AppCompatActivity {
                 setSubtitleIndicatorColor();
             }
         }));
+
         layoutMiscellaneous.findViewById(R.id.layoutAddImage).setOnClickListener(v -> {
             bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             if(ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED){
