@@ -98,9 +98,6 @@ public class CreateNoteActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.rotateImage).setOnClickListener(v -> {
-            //imageNote.setRotation(imageNote.getRotation()+90);
-            //imageNote.setImageBitmap(BitmapFactory.decodeFile(alreadyAvailableNote.getImagePath()));
-            //Bitmap bitmap = BitmapFactory.decodeStream(selectedImagePath);
             Bitmap bitmap= BitmapFactory.decodeFile(selectedImagePath);
             Matrix matrix = new Matrix();
             matrix.setRotate(90f);
