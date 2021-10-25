@@ -141,36 +141,6 @@
                 app:layout_constraintEnd_toEndOf="@id/imageNote"
                 app:layout_constraintTop_toTopOf="@id/imageNote"
                 app:tint="@color/white" />
-            <!--<LinearLayout
-                android:id="@+id/layoutWebURL"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_12sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:layout_marginEnd="@dimen/_12sdp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:visibility="gone"
-                app:layout_constraintTop_toBottomOf="@id/imageNote">
-                
-                <TextView
-                    android:id="@+id/textWebURL"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:autoLink="web"
-                    android:fontFamily="@font/ubuntu_regular"
-                    android:includeFontPadding="false"
-                    android:textSize="@dimen/_13ssp" />
-                <ImageView
-                    android:id="@+id/imageRemoveWebURL"
-                    android:layout_width="@dimen/_20sdp"
-                    android:layout_height="@dimen/_20sdp"
-                    android:src="@drawable/ic_delete"
-                    app:tint="@color/colorDelete" />
-
-            </LinearLayout>-->
-
 
             <EditText
                 android:id="@+id/InputNote"

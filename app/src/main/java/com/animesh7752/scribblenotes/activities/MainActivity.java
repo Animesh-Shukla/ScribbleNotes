@@ -51,7 +51,6 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
     private List<Note>noteList;
     private NotesAdapter notesAdapter;
 
-    private AlertDialog dialogAddURL;
     private int noteClickedPosition =-1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -100,12 +99,6 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
             }
         });
 
-        /*findViewById(R.id.ImageAddWebLink).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showAddURLDialog();
-            }
-        });*/
     }
 
     private void selectImage(){
@@ -212,36 +205,4 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
             }
         }
     }
-    /*private void showAddURLDialog(){
-        if(dialogAddURL == null){
-            android.app.AlertDialog.Builder builder= new android.app.AlertDialog.Builder(MainActivity.this);
-            View view = LayoutInflater.from(this).inflate(R.layout.layout_add_url, findViewById(R.id.layoutAddUrlContainer));
-            builder.setView(view);
-            dialogAddURL = builder.create();
-            if(dialogAddURL.getWindow()!= null){
-                dialogAddURL.getWindow().setBackgroundDrawable(new ColorDrawable(0));
-            }
-
-            final EditText inputURL = view.findViewById(R.id.inputURL);
-            inputURL.requestFocus();
-
-            view.findViewById(R.id.textAdd).setOnClickListener(v -> {
-                if(inputURL.getText().toString().trim().isEmpty()){
-                    Toast.makeText(MainActivity.this,"URL not entered!",Toast.LENGTH_SHORT).show();
-                }else if(!Patterns.WEB_URL.matcher(inputURL.getText().toString()).matches()){
-                    Toast.makeText(MainActivity.this,"Enter valid URL",Toast.LENGTH_SHORT).show();
-                }else{
-                    dialogAddURL.dismiss();
-                    Intent intent = new Intent(getApplicationContext(), CreateNoteActivity.class);
-                    intent.putExtra("isFromQuickActions",true);
-                    intent.putExtra("quickActionsType","URL");
-                    intent.putExtra("URL",inputURL.getText().toString());
-                    startActivityForResult(intent,REQUEST_CODE_ADD_NOTE);
-                }
-            });
-
-            view.findViewById(R.id.textCancel).setOnClickListener(v -> dialogAddURL.dismiss());
-        }
-        dialogAddURL.show();
-    }*/
 }
