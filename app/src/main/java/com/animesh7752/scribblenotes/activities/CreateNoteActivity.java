@@ -23,6 +23,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.method.LinkMovementMethod;
 import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,7 +58,7 @@ public class CreateNoteActivity extends AppCompatActivity {
     private String selectedImagePath;
     private View viewSubtitleIndicator;
     private ImageView imageNote;
-    private TextView textWebURL;
+    //private TextView textWebURL;
     private LinearLayout layoutWebURL;
     private SeekBar seekBarTextSize;
     private static final int REQUEST_CODE_STORAGE_PERMISSION=1;
@@ -78,24 +79,24 @@ public class CreateNoteActivity extends AppCompatActivity {
         textDateTime= findViewById(R.id.textDateTime);
         viewSubtitleIndicator= findViewById(R.id.ViewSubtitleIndicator);
         imageNote = findViewById(R.id.imageNote);
-        textWebURL= findViewById(R.id.textWebURL);
-        layoutWebURL= findViewById(R.id.layoutWebURL);
+        //textWebURL= findViewById(R.id.textWebURL);
+        //layoutWebURL= findViewById(R.id.layoutWebURL);
         textDateTime.setText(new SimpleDateFormat("EEEE, dd MMMM yyyy HH:mm a", Locale.getDefault()).format(new Date()));
 
         ImageView imageSave=findViewById(R.id.imageSave);
         imageSave.setOnClickListener(v -> saveNote());
         selectedNoteColor="#333333";
         selectedImagePath = "";
-
+        inputNoteText.setMovementMethod(LinkMovementMethod.getInstance());
         if(getIntent().getBooleanExtra("isViewOrUpdate",false)){
             alreadyAvailableNote = (Note)getIntent().getSerializableExtra("note");
             setViewOrUpdateNote();
         }
 
-        findViewById(R.id.imageRemoveWebURL).setOnClickListener(v -> {
+        /*findViewById(R.id.imageRemoveWebURL).setOnClickListener(v -> {
             textWebURL.setText(null);
             layoutWebURL.setVisibility(View.GONE);
-        });
+        });*/
 
         findViewById(R.id.rotateImage).setOnClickListener(v -> {
             Bitmap bitmap= BitmapFactory.decodeFile(selectedImagePath);
@@ -120,10 +121,10 @@ public class CreateNoteActivity extends AppCompatActivity {
                     imageNote.setImageBitmap(BitmapFactory.decodeFile(selectedImagePath));
                     imageNote.setVisibility(View.VISIBLE);
                     findViewById(R.id.imageRemoveImage).setVisibility(View.VISIBLE);
-                }else if(type.equals("URL")){
-                    textWebURL.setText(getIntent().getStringExtra("URL"));
+                }/*else if(type.equals("URL")){
+                    //textWebURL.setText(getIntent().getStringExtra("URL"));
                     layoutWebURL.setVisibility(View.VISIBLE);
-                }
+                }*/
             }
         }
         seekBarTextSize=findViewById(R.id.seekBar);
@@ -144,11 +145,11 @@ public class CreateNoteActivity extends AppCompatActivity {
             findViewById(R.id.rotateImage).setVisibility(View.VISIBLE);
             selectedImagePath = alreadyAvailableNote.getImagePath();
         }
-        if(alreadyAvailableNote.getWebLink() != null && !alreadyAvailableNote.getWebLink().trim().isEmpty()){
+       /* if(alreadyAvailableNote.getWebLink() != null && !alreadyAvailableNote.getWebLink().trim().isEmpty()){
             textWebURL.setText(alreadyAvailableNote.getWebLink());
             layoutWebURL.setVisibility(View.VISIBLE);
-
-        }
+*
+        }*/
     }
 
     private void saveNote(){
@@ -168,9 +169,9 @@ public class CreateNoteActivity extends AppCompatActivity {
         note.setColor(selectedNoteColor);
         note.setImagePath(selectedImagePath);
 
-        if(layoutWebURL.getVisibility()== View.VISIBLE){
+        /*if(layoutWebURL.getVisibility()== View.VISIBLE){
             note.setWebLink(textWebURL.getText().toString());
-        }
+        }*/
 
         if(alreadyAvailableNote!= null ){
             note.setId(alreadyAvailableNote.getId());
@@ -247,10 +248,10 @@ public class CreateNoteActivity extends AppCompatActivity {
                 selectImage();
             }
         });
-        layoutMiscellaneous.findViewById(R.id.layoutAddUrl).setOnClickListener(v -> {
+        /*layoutMiscellaneous.findViewById(R.id.layoutAddUrl).setOnClickListener(v -> {
             bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
             showAddURLDialog();
-        });
+        });*/
 
         if(alreadyAvailableNote!=null){
             layoutMiscellaneous.findViewById(R.id.layoutDeleteNote).setVisibility(View.VISIBLE);
@@ -365,7 +366,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         return filePath;
     }
 
-    private void showAddURLDialog(){
+   /* private void showAddURLDialog(){
         if(dialogAddURL == null){
             AlertDialog.Builder builder= new AlertDialog.Builder(CreateNoteActivity.this);
             View view = LayoutInflater.from(this).inflate(R.layout.layout_add_url, findViewById(R.id.layoutAddUrlContainer));
@@ -383,15 +384,15 @@ public class CreateNoteActivity extends AppCompatActivity {
                     Toast.makeText(CreateNoteActivity.this,"URL not entered!",Toast.LENGTH_SHORT).show();
                 }else if(!Patterns.WEB_URL.matcher(inputURL.getText().toString()).matches()){
                     Toast.makeText(CreateNoteActivity.this,"Enter valid URL",Toast.LENGTH_SHORT).show();
-                }else{
-                    textWebURL.setText(inputURL.getText().toString());
-                    layoutWebURL.setVisibility(View.VISIBLE);
-                    dialogAddURL.dismiss();
-                }
-            });
+                }/*else{
+                    //textWebURL.setText(inputURL.getText().toString());
+                    //layoutWebURL.setVisibility(View.VISIBLE);
+                    //dialogAddURL.dismiss();
+                }*/
+            //});
 
-            view.findViewById(R.id.textCancel).setOnClickListener(v -> dialogAddURL.dismiss());
+            /*view.findViewById(R.id.textCancel).setOnClickListener(v -> dialogAddURL.dismiss());
         }
         dialogAddURL.show();
-    }
+    }*/
 }

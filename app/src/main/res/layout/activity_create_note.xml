@@ -141,7 +141,7 @@
                 app:layout_constraintEnd_toEndOf="@id/imageNote"
                 app:layout_constraintTop_toTopOf="@id/imageNote"
                 app:tint="@color/white" />
-            <LinearLayout
+            <!--<LinearLayout
                 android:id="@+id/layoutWebURL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -169,7 +169,7 @@
                     android:src="@drawable/ic_delete"
                     app:tint="@color/colorDelete" />
 
-            </LinearLayout>
+            </LinearLayout>-->
 
 
             <EditText
@@ -182,6 +182,8 @@
                 android:layout_marginBottom="@dimen/_15sdp"
                 android:fontFamily="@font/ubuntu_regular"
                 android:gravity="top"
+                android:autoLink="web"
+                android:clickable="true"
                 android:hint="@string/type_note"
                 android:importantForAutofill="no"
                 android:includeFontPadding="false"
@@ -191,7 +193,7 @@
                 android:textColorHint="@color/colorTextHint"
                 android:textSize="@dimen/_13ssp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/layoutWebURL" />
+                app:layout_constraintTop_toBottomOf="@id/imageNote" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
     <include layout="@layout/layout_miscellaneous"/>

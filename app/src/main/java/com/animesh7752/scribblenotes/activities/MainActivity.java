@@ -100,12 +100,12 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
             }
         });
 
-        findViewById(R.id.ImageAddWebLink).setOnClickListener(new View.OnClickListener() {
+        /*findViewById(R.id.ImageAddWebLink).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showAddURLDialog();
             }
-        });
+        });*/
     }
 
     private void selectImage(){
@@ -212,7 +212,7 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
             }
         }
     }
-    private void showAddURLDialog(){
+    /*private void showAddURLDialog(){
         if(dialogAddURL == null){
             android.app.AlertDialog.Builder builder= new android.app.AlertDialog.Builder(MainActivity.this);
             View view = LayoutInflater.from(this).inflate(R.layout.layout_add_url, findViewById(R.id.layoutAddUrlContainer));
@@ -243,5 +243,5 @@ public class MainActivity extends AppCompatActivity implements NotesListener {
             view.findViewById(R.id.textCancel).setOnClickListener(v -> dialogAddURL.dismiss());
         }
         dialogAddURL.show();
-    }
+    }*/
 }

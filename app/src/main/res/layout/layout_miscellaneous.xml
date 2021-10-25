@@ -75,7 +75,7 @@
             android:textColor="@color/colorIcons"
             android:textSize="@dimen/_12ssp" />
     </LinearLayout>
-    <LinearLayout
+    <!--<LinearLayout
         android:id="@+id/layoutAddUrl"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_35sdp"
@@ -99,7 +99,7 @@
             android:text="@string/add_url"
             android:textColor="@color/colorIcons"
             android:textSize="@dimen/_12sdp"/>
-    </LinearLayout>
+    </LinearLayout>-->
     <LinearLayout
         android:id="@+id/layoutDeleteNote"
         android:layout_width="match_parent"
